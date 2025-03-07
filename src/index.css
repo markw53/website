@@ -1,8 +1,13 @@
-/* src/index.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --color-primary: #2563eb;
+  --color-secondary: #1e40af;
+  --color-dark: #111827;
+  --color-light: #f3f4f6;
+}
 
 /* Custom base styles */
 @layer base {
@@ -14,42 +19,64 @@
     @apply text-gray-800 antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+  /* Interactive elements */
+  button, a {
+    @apply transition-all duration-200;
+  }
+
+  /* Form elements */
+  input, textarea {
+    @apply transition-all duration-200;
+  }
+
+  input:focus, textarea:focus {
+    @apply outline-none ring-2;
+    --tw-ring-color: var(--color-primary);
+    --tw-ring-opacity: 0.2;
   }
 }
 
-/* Custom component classes */
+/* Custom components */
 @layer components {
-  .container-padding {
-    @apply px-4 sm:px-6 lg:px-8;
+  .btn {
+    @apply px-6 py-3 rounded-md font-medium transition-all;
   }
 
-  .section-padding {
-    @apply py-12 sm:py-16 lg:py-20;
+  .btn-primary {
+    @apply text-white;
+    background-color: var(--color-primary);
   }
 
-  .page-title {
-    @apply text-4xl sm:text-5xl font-bold text-gray-900;
+  .btn-primary:hover {
+    background-color: var(--color-secondary);
   }
 
-  .section-title {
-    @apply text-3xl sm:text-4xl font-bold text-gray-900;
+  .btn-outline {
+    @apply border;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
   }
 
-  .subtitle {
-    @apply text-xl text-gray-600;
-  }
-}
-
-/* Custom utility classes */
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  .btn-outline:hover {
+    background-color: rgba(37, 99, 235, 0.1);
   }
 
-  .bg-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary;
+  .card {
+    @apply bg-white rounded-lg shadow-lg transition-shadow duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-xl;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md transition-all;
+  }
+
+  .input:focus {
+    @apply outline-none ring-2;
+    --tw-ring-color: var(--color-primary);
+    --tw-ring-opacity: 0.2;
   }
 }
 

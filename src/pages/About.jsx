@@ -2,29 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaUsers, FaLightbulb, FaRocket, FaHeart } from 'react-icons/fa';
 
-const values = [
-  {
-    icon: <FaUsers className="h-6 w-6" />,
-    title: 'Client-Focused',
-    description: 'We put our clients first, ensuring their needs and goals drive every decision.',
-  },
-  {
-    icon: <FaLightbulb className="h-6 w-6" />,
-    title: 'Innovation',
-    description: 'We stay at the forefront of technology to deliver cutting-edge solutions.',
-  },
-  {
-    icon: <FaRocket className="h-6 w-6" />,
-    title: 'Excellence',
-    description: 'We strive for excellence in every project we undertake.',
-  },
-  {
-    icon: <FaHeart className="h-6 w-6" />,
-    title: 'Passion',
-    description: 'We are passionate about creating solutions that make a difference.',
-  },
-];
-
 const team = [
   {
     name: 'John Doe',
@@ -48,17 +25,40 @@ const team = [
   },
 ];
 
+const values = [
+  {
+    icon: <FaUsers className="w-8 h-8" />,
+    title: 'Client-Focused',
+    description: 'We put our clients first, ensuring their needs and goals drive every decision.',
+  },
+  {
+    icon: <FaLightbulb className="w-8 h-8" />,
+    title: 'Innovation',
+    description: 'We stay at the forefront of technology to deliver cutting-edge solutions.',
+  },
+  {
+    icon: <FaRocket className="w-8 h-8" />,
+    title: 'Excellence',
+    description: 'We strive for excellence in every project we undertake.',
+  },
+  {
+    icon: <FaHeart className="w-8 h-8" />,
+    title: 'Passion',
+    description: 'We are passionate about creating solutions that make a difference.',
+  },
+];
+
 const About = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      className="pt-16"
     >
       {/* Hero Section */}
-      <section className="bg-gray-50 py-20 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -76,46 +76,42 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Story Section */}
+      {/* Story Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl font-bold text-gray-900">Our Story</h2>
               <p className="mt-4 text-lg text-gray-600">
-                Founded in 2015, we started with a simple mission: to help businesses
-                succeed in the digital age. Since then, we've grown into a full-service
-                digital solutions provider, working with clients across various industries.
+                Founded with a vision to transform digital experiences, we've grown
+                into a full-service digital solutions provider. Our journey is marked
+                by continuous innovation and a commitment to excellence.
               </p>
               <p className="mt-4 text-lg text-gray-600">
-                Our team combines technical expertise with creative innovation to
-                deliver solutions that not only meet but exceed our clients' expectations.
+                Today, we help businesses of all sizes navigate the digital landscape
+                and achieve their goals through cutting-edge technology solutions.
               </p>
             </motion.div>
             <motion.div
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="relative h-96"
+              transition={{ duration: 0.5 }}
+              className="relative h-96 rounded-lg overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-lg opacity-10"></div>
-              <img
-                src="/path-to-your-image.jpg"
-                alt="Our team"
-                className="rounded-lg shadow-xl"
-              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-10"></div>
+              {/* Add your image here */}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Our Values */}
+      {/* Values Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -135,10 +131,12 @@ const About = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-lg shadow-lg"
+                className="card p-6"
               >
-                <div className="text-primary mb-4">{value.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{value.title}</h3>
+                <div style={{ color: 'var(--color-primary)' }}>
+                  {value.icon}
+                </div>
+                <h3 className="text-xl font-bold mt-4 mb-2">{value.title}</h3>
                 <p className="text-gray-600">{value.description}</p>
               </motion.div>
             ))}
@@ -148,7 +146,7 @@ const About = () => {
 
       {/* Team Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -174,7 +172,7 @@ const About = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="rounded-full"
+                    className="rounded-full w-full h-full object-cover"
                   />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>

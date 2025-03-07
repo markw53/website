@@ -7,9 +7,9 @@ import Testimonials from '../components/sections/Testimonials';
 import Contact from '../components/sections/Contact';
 
 const pageTransition = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -20 },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
 };
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{ duration: 0.5 }}
+      className="overflow-hidden"
     >
       <Hero />
       <Services />
